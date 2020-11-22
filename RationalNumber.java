@@ -113,19 +113,50 @@ public class RationalNumber extends RealNumber
     *Return a new RationalNumber that is the this divided by the other
     */
     public RationalNumber divide(RationalNumber other){
-      return null;
+      int a = numerator / other.getNumerator();
+      int b = denominator / other.getDenominator();
+      RationalNumber result = new RationalNumber(a,b);
+      result.reduce();
+      return result;
     }
   
     /**
     *Return a new RationalNumber that is the sum of this and the other
     */
     public RationalNumber add(RationalNumber other){
-      return null;
+      int A1 = numerator;
+      int A2 = denominator;
+      int B1 = other.getNumerator();
+      int B2 = other.getDenominator();
+      int commondeno = gcd(denominator, other.getDenominator());
+      int denoA = A2 / commondeno;
+      int denoB = B2 / commondeno;
+      A1 = A1 * denoB;
+      A2 = A2 * denoB;
+      B1 = B1 * denoA;
+      B2 = B2 * denoA;
+      RationalNumber result = new RationalNumber((A1+B1), A2);
+      reduce();
+      return result;
+
     }
     /**
     *Return a new RationalNumber that this minus the other
     */
     public RationalNumber subtract(RationalNumber other){
-      return null;
+      int A1 = numerator;
+      int A2 = denominator;
+      int B1 = other.getNumerator();
+      int B2 = other.getDenominator();
+      int commondeno = gcd(denominator, other.getDenominator());
+      int denoA = A2 / commondeno;
+      int denoB = B2 / commondeno;
+      A1 = A1 * denoB;
+      A2 = A2 * denoB;
+      B1 = B1 * denoA;
+      B2 = B2 * denoA;
+      RationalNumber result = new RationalNumber((A1-B1), A2);
+      reduce();
+      return result;
     }
   } 
