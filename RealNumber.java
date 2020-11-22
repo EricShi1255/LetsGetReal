@@ -20,7 +20,7 @@ public class RealNumber{
     */
     public boolean equals(RealNumber other){
         double value2 = other.getValue();
-        if (Math.abs(value - value2)/value2 < 0.001) {
+        if (Math.abs(value - value2)/value2 < 0.00001) {
             return true;
         }
         return false;
@@ -42,7 +42,8 @@ public class RealNumber{
     *the product of this and the other
     */
     public RealNumber multiply(RealNumber other){
-          return null;
+        RealNumber result = new RealNumber(value * other.getValue());
+        return result;
     }
   
     /*
@@ -50,7 +51,8 @@ public class RealNumber{
     *this divided by the other
     */
     public RealNumber divide(RealNumber other){
-          return null;
+        RealNumber result = new RealNumber(value * other.getValue());
+    
     }
   
     /*
