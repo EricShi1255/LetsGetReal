@@ -10,11 +10,11 @@ public class RationalNumber extends RealNumber
     */
     public RationalNumber(int nume, int deno){
       super(0.0);//this value is ignored! 
-      if (deno == 0) {
+      if (deno == 0 || nume == 0) {
         numerator = 0;
         denominator = 1;
       }
-      else if (deno == -1) {
+      else if (deno < 0) {
         numerator = nume *-1;
         denominator = deno * -1;
       }
@@ -27,7 +27,9 @@ public class RationalNumber extends RealNumber
     }
   
     public double getValue(){
-      return 0.0;
+      double num1 = Double.valueOf(numerator);
+      double num2 = Double.valueOf(denominator);
+      return(num1 / num2);
     }
   
     /**
@@ -92,7 +94,7 @@ public class RationalNumber extends RealNumber
     *reduced after construction.
     */
     private void reduce(){
-      int gcf = gcd(numerator, denominator);
+      int gcf = gcd(Math.abs(numerator), Math.abs(denominator));
       numerator = numerator / gcf;
       denominator = denominator / gcf;
   
@@ -113,9 +115,9 @@ public class RationalNumber extends RealNumber
     *Return a new RationalNumber that is the this divided by the other
     */
     public RationalNumber divide(RationalNumber other){
-      int a = numerator / other.getNumerator();
-      int b = denominator / other.getDenominator();
-      RationalNumber result = new RationalNumber(a,b);
+      RationalNumber recip = other.reciprocal();
+      RationalNumber first = new RationalNumber(numerator, denominator);
+      RationalNumber result = recip.multiply(first);
       result.reduce();
       return result;
     }
@@ -136,7 +138,7 @@ public class RationalNumber extends RealNumber
       B1 = B1 * denoA;
       B2 = B2 * denoA;
       RationalNumber result = new RationalNumber((A1+B1), A2);
-      reduce();
+      result. reduce();
       return result;
 
     }
@@ -156,7 +158,7 @@ public class RationalNumber extends RealNumber
       B1 = B1 * denoA;
       B2 = B2 * denoA;
       RationalNumber result = new RationalNumber((A1-B1), A2);
-      reduce();
+      result.reduce();
       return result;
     }
   } 
