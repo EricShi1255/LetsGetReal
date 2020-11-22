@@ -102,7 +102,11 @@ public class RationalNumber extends RealNumber
     *Return a new RationalNumber that is the product of this and the other
     */
     public RationalNumber multiply(RationalNumber other){
-      return null;
+      int a = numerator * other.getNumerator();
+      int b = denominator * other.getDenominator();
+      RationalNumber result = new RationalNumber(a,b);
+      result.reduce();
+      return result;
     }
   
     /**
