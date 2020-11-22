@@ -46,7 +46,7 @@ public class RationalNumber extends RealNumber
     *and denominator as this RationalNumber but reversed.
     */
     public RationalNumber reciprocal(){
-      RationalNumber result = (deno, nume);
+      RationalNumber result = new RationalNumber(denominator, numerator);
       return result;
     }
     /**
@@ -66,7 +66,7 @@ public class RationalNumber extends RealNumber
     *@return the value expressed as "3/4" or "8/3"
     */
     public String toString(){
-      return "0";
+      return numerator + "/" + denominator;
     }
   
     /**Calculate the GCD of two integers.
@@ -76,8 +76,13 @@ public class RationalNumber extends RealNumber
     */
     private static int gcd(int a, int b){
       /*use euclids method or a better one*/
-      http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-      return 0;
+      for (int i = Math.min(a,b); i > 1; i--) {
+        if ((a % i == 0) && (b % i == 0)) {
+          return i;
+        }
+
+      }
+      return 1;
     }
   
     /**
