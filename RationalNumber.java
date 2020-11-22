@@ -22,6 +22,7 @@ public class RationalNumber extends RealNumber
         numerator = nume;
         denominator = deno;
       }
+      reduce();
 
     }
   
@@ -91,6 +92,9 @@ public class RationalNumber extends RealNumber
     *reduced after construction.
     */
     private void reduce(){
+      int gcf = gcd(numerator, denominator);
+      numerator = numerator / gcf;
+      denominator = denominator / gcf;
   
     }
     /******************Operations Return a new RationalNumber!!!!****************/
