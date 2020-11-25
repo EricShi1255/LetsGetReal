@@ -9,10 +9,10 @@ public abstract class Number{
     if (equals(other)) {
         return 0;
     }
-    if (getValue() < other.getValue()) {
-        return 1;
+    else if (getValue() < other.getValue()) {
+        return -1;
     }
-    return -1;
+    return 1;
   }
 
   /*
