@@ -21,10 +21,15 @@ public abstract class Number{
   *Special case: if one is exactly zero, the other must be exactly zero.
   */
   public boolean equals(Number other){
-        double value2 = other.getValue();
-        if (Math.abs(getValue() - value2)/value2 < 0.00001) {
+        double valueb = other.getValue();
+        if (getValue() == 0 || valueb == 0) {
+            return((getValue() == 0) && (valueb == 0));
+        }
+        if ((Math.abs(getValue() - valueb)/valueb) < 0.00001) {
             return true;
         }
+        else{
         return false;
+        }
     }
 }
